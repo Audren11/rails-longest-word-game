@@ -1,0 +1,13 @@
+
+  <% @letters.each do |letter| %>
+   <%= letter %>
+  <% end %>
+
+
+<form action="score" method="POST">
+  <input type="text" name="word" placeholder="Try your best">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name="letters" value="<%= @letters.join %>">
+  <%= hidden_field_tag :start_time, Time.now %>
+  <input type="submit" value="Try it!">
+</form>
